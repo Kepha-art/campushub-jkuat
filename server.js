@@ -16,8 +16,8 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.log(err))
 
 // Only use routes that actually exist
-app.use('/api/auth', require('./routes/auth'))
-app.use('/api/payment', require('./routes/payment'))
+// app.use('/api/auth', require('./routes/auth'))
+// app.use('/api/payment', require('./routes/payment'))
 
 // SERVE REACT BUILD - THIS FIXES "NOT FOUND"
 app.use(express.static(path.join(__dirname, 'frontend', 'build')))

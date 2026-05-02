@@ -1,5 +1,4 @@
-require('dotenv').config()
-
+const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -12,8 +11,8 @@ app.use(express.json())
 console.log('MONGODB_URI:', process.env.MONGODB_URI ? 'Found' : 'Missing')
 
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('MongoDB Connected:', mongoose.connection.host))
-  .catch((err) => console.error('MongoDB Error:', err.message))
+  .then(() => console.log('MongoDB Connected'))
+  .catch((err) => console.error('MongoDB Error:', err))
 
 app.get('/', (req, res) => {
   res.send('CampusHub JKUAT API Running')
@@ -23,10 +22,10 @@ app.get('/', (req, res) => {
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/payment', require('./routes/payment'))
 
-// Add these back later after you create the files
-// app.use('/api/products', require('./routes/products'))
-// app.use('/api/services', require('./routes/services'))
-// app.use('/api/cart', require('./routes/cart'))
+// ADD THIS BLOCK NEXT - FIXES "NOT FOUND"
+app.use(express.static(path.join(__dirname, 'frontend' 'build')))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontendcd' 'build', 'index.html'))
+})
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+app.listen(10000, () => console.log('Server running on port 10000'))

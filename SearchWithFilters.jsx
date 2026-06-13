@@ -53,8 +53,8 @@ const ProductCard = ({ product }) => {
   const price = product.priceKES ?? product.price ?? 0;
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
-      <div className="mb-4 h-48 overflow-hidden rounded-3xl bg-slate-100">
+    <div className="rounded-3xl border border-[var(--jkuat-green-600)]/10 bg-[var(--jkuat-white)] p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+      <div className="mb-4 h-48 overflow-hidden rounded-3xl bg-[var(--jkuat-muted)]">
         <img
           src={imageUrl}
           alt={product.name}
@@ -63,15 +63,15 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="space-y-3">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="text-lg font-semibold text-slate-900">{product.name || 'Unnamed product'}</h2>
-          <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
+          <h2 className="text-lg font-semibold text-[var(--jkuat-text)]">{product.name || 'Unnamed product'}</h2>
+          <span className="rounded-full bg-[rgba(14,122,54,0.12)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--jkuat-green-600)]">
             {product.category || 'Unknown'}
           </span>
         </div>
-        <p className="text-sm text-slate-600 line-clamp-2">
+        <p className="text-sm text-[var(--jkuat-text)]/75 line-clamp-2">
           {product.description || 'No description available.'}
         </p>
-        <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-slate-500">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-[var(--jkuat-text)]/70">
           <span>KES {price.toLocaleString()}</span>
           <span>{product.campusLocation || 'No location'}</span>
         </div>
@@ -139,18 +139,18 @@ const SearchWithFilters = () => {
   }, [debouncedSearch, categoryFilters, minPrice, maxPrice, location]);
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6">
+    <div className="min-h-screen bg-[var(--jkuat-muted)] p-6">
       <div className="mx-auto max-w-7xl space-y-6">
-        <header className="rounded-[2rem] bg-white p-8 shadow-sm">
+        <header className="rounded-[2rem] bg-[var(--jkuat-white)] p-8 shadow-sm">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h1 className="text-3xl font-semibold text-slate-900">Marketplace Search</h1>
-              <p className="mt-2 text-slate-600">Search products and refine with category, price, and location filters.</p>
+              <h1 className="text-3xl font-semibold text-[var(--jkuat-text)]">Marketplace Search</h1>
+              <p className="mt-2 text-[var(--jkuat-text)]/80">Search products and refine with category, price, and location filters.</p>
             </div>
             <button
               type="button"
               onClick={resetFilters}
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+              className="inline-flex items-center justify-center rounded-full border border-[var(--jkuat-green-600)] bg-[var(--jkuat-white)] px-5 py-3 text-sm font-medium text-[var(--jkuat-green-600)] transition hover:bg-[rgba(14,122,54,0.08)]"
             >
               Reset filters
             </button>
@@ -158,10 +158,10 @@ const SearchWithFilters = () => {
         </header>
 
         <div className="grid gap-6 xl:grid-cols-[320px_1fr]">
-          <aside className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+          <aside className="rounded-[2rem] border border-[var(--jkuat-green-600)]/30 bg-[var(--jkuat-white)] p-6 shadow-sm">
             <div className="space-y-6">
               <div>
-                <label htmlFor="search" className="block text-sm font-semibold text-slate-900">
+                <label htmlFor="search" className="block text-sm font-semibold text-[var(--jkuat-text)]">
                   Search products
                 </label>
                 <input
@@ -170,23 +170,23 @@ const SearchWithFilters = () => {
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
                   placeholder="Search by name, description, or category"
-                  className="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="mt-3 w-full rounded-3xl border border-[var(--jkuat-green-600)] bg-[var(--jkuat-white)] px-4 py-3 text-sm text-[var(--jkuat-text)] outline-none transition focus:border-[var(--jkuat-green-600)] focus:ring-2 focus:ring-[rgba(14,122,54,0.16)]"
                 />
               </div>
 
               <div className="space-y-3">
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Category</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-[var(--jkuat-text)]/70">Category</h2>
                 <div className="space-y-2">
                   {categories.map((category) => (
                     <label
                       key={category}
-                      className="flex items-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition hover:border-indigo-300"
+                      className="flex items-center gap-3 rounded-3xl border border-[var(--jkuat-green-600)]/30 bg-[var(--jkuat-white)] px-4 py-3 text-sm text-[var(--jkuat-green-600)] transition hover:border-[var(--jkuat-green-600)]/60"
                     >
                       <input
                         type="checkbox"
                         checked={categoryFilters.includes(category)}
                         onChange={() => toggleCategory(category)}
-                        className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                        className="h-4 w-4 rounded border-[var(--jkuat-green-600)] text-[var(--jkuat-green-600)] focus:ring-[var(--jkuat-green-600)]"
                       />
                       <span className="capitalize">{category}</span>
                     </label>
@@ -195,12 +195,12 @@ const SearchWithFilters = () => {
               </div>
 
               <div className="space-y-3">
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Location</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-[var(--jkuat-text)]/70">Location</h2>
                 <div className="space-y-2">
                   {locations.map((option) => (
                     <label
                       key={option}
-                      className="flex items-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition hover:border-indigo-300"
+                      className="flex items-center gap-3 rounded-3xl border border-[var(--jkuat-green-600)]/30 bg-[var(--jkuat-white)] px-4 py-3 text-sm text-[var(--jkuat-green-600)] transition hover:border-[var(--jkuat-green-600)]/60"
                     >
                       <input
                         type="radio"
@@ -208,7 +208,7 @@ const SearchWithFilters = () => {
                         value={option}
                         checked={location === option}
                         onChange={() => setLocation(option)}
-                        className="h-4 w-4 rounded-full border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                        className="h-4 w-4 rounded-full border-[var(--jkuat-green-600)] text-[var(--jkuat-green-600)] focus:ring-[var(--jkuat-green-600)]"
                       />
                       <span>{option}</span>
                     </label>
@@ -217,31 +217,31 @@ const SearchWithFilters = () => {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
+                <div className="flex items-center justify-between text-sm font-semibold text-[var(--jkuat-text)]/80">
                   <span>Price range</span>
                   <span>KES {minPrice.toLocaleString()} - KES {maxPrice.toLocaleString()}</span>
                 </div>
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <label className="text-sm text-slate-500">Minimum</label>
+                    <label className="text-sm text-[var(--jkuat-text)]/70">Minimum</label>
                     <input
                       type="range"
                       min={priceRange.min}
                       max={priceRange.max}
                       value={minPrice}
                       onChange={(event) => setMinPrice(event.target.value)}
-                      className="w-full accent-indigo-600"
+                      className="w-full accent-[var(--jkuat-green-600)]"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm text-slate-500">Maximum</label>
+                    <label className="text-sm text-[var(--jkuat-text)]/70">Maximum</label>
                     <input
                       type="range"
                       min={priceRange.min}
                       max={priceRange.max}
                       value={maxPrice}
                       onChange={(event) => setMaxPrice(event.target.value)}
-                      className="w-full accent-indigo-600"
+                      className="w-full accent-[var(--jkuat-green-600)]"
                     />
                   </div>
                 </div>
@@ -250,20 +250,20 @@ const SearchWithFilters = () => {
           </aside>
 
           <section className="space-y-6">
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="rounded-[2rem] border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] p-6 shadow-sm">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-slate-500">Results</p>
-                  <h2 className="mt-2 text-2xl font-semibold text-slate-900">Products</h2>
+                  <p className="text-sm uppercase tracking-[0.2em] text-[var(--jkuat-text)]/70">Results</p>
+                  <h2 className="mt-2 text-2xl font-semibold text-[var(--jkuat-text)]">Products</h2>
                 </div>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-[var(--jkuat-text)]/70">
                   Showing {loading ? 'latest' : products.length} result{products.length === 1 ? '' : 's'}
                 </p>
               </div>
             </div>
 
             {error ? (
-              <div className="rounded-[2rem] border border-red-200 bg-red-50 p-6 text-sm text-red-700">
+              <div className="rounded-[2rem] border border-[var(--jkuat-red)]/20 bg-[rgba(198,40,40,0.08)] p-6 text-sm text-[var(--jkuat-red)]">
                 {error}
               </div>
             ) : null}
@@ -273,12 +273,12 @@ const SearchWithFilters = () => {
                 {Array.from({ length: 6 }).map((_, index) => (
                   <div
                     key={index}
-                    className="h-80 animate-pulse rounded-3xl border border-slate-200 bg-slate-100"
+                    className="h-80 animate-pulse rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-muted)]"
                   />
                 ))}
               </div>
             ) : products.length === 0 ? (
-              <div className="rounded-[2rem] border border-dashed border-slate-300 bg-white p-12 text-center text-slate-600">
+              <div className="rounded-[2rem] border border-dashed border-[var(--jkuat-green-600)]/40 bg-[var(--jkuat-white)] p-12 text-center text-[var(--jkuat-text)]">
                 No results found. Try adjusting your search or filters.
               </div>
             ) : (

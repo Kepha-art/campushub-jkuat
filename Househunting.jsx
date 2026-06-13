@@ -80,37 +80,37 @@ const Househunting = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[var(--jkuat-muted)] px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <header className="mb-8 rounded-3xl bg-white p-6 shadow-sm">
-          <h1 className="text-3xl font-semibold text-slate-900">House Hunting</h1>
-          <p className="mt-2 text-slate-600">Browse hostel and house listings for JKUAT students.</p>
+        <header className="mb-8 rounded-3xl bg-[var(--jkuat-white)] p-6 shadow-sm border border-[var(--jkuat-green-600)]/10">
+          <h1 className="text-3xl font-semibold text-[var(--jkuat-text)]">House Hunting</h1>
+          <p className="mt-2 text-[var(--jkuat-text)]/75">Browse hostel and house listings for JKUAT students.</p>
         </header>
 
         <section className="mb-8 grid gap-4 lg:grid-cols-[280px_1fr]">
-          <aside className="rounded-3xl bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900">Filters</h2>
+          <aside className="rounded-3xl bg-[var(--jkuat-white)] p-6 shadow-sm border border-[var(--jkuat-green-600)]/10">
+            <h2 className="text-xl font-semibold text-[var(--jkuat-text)]">Filters</h2>
 
             <div className="mt-6 space-y-6">
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">Max Rent (KES)</label>
+                <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/80">Max Rent (KES)</label>
                 <input
                   type="range"
                   min="3000"
                   max="15000"
                   value={priceRange}
                   onChange={(e) => setPriceRange(Number(e.target.value))}
-                  className="w-full accent-emerald-500"
+                  className="w-full accent-[var(--jkuat-green-600)]"
                 />
-                <div className="mt-2 text-sm text-slate-600">Up to KES {priceRange}</div>
+                <div className="mt-2 text-sm text-[var(--jkuat-text)]/70">Up to KES {priceRange}</div>
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">Location</label>
+                <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/80">Location</label>
                 <select
                   value={locationFilter}
                   onChange={(e) => setLocationFilter(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 shadow-sm focus:border-emerald-500 focus:outline-none"
+                  className="w-full rounded-2xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-4 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                 >
                   {locations.map((location) => (
                     <option key={location} value={location}>
@@ -121,11 +121,11 @@ const Househunting = () => {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">Bedrooms</label>
+                <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/80">Bedrooms</label>
                 <select
                   value={bedroomFilter}
                   onChange={(e) => setBedroomFilter(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 shadow-sm focus:border-emerald-500 focus:outline-none"
+                  className="w-full rounded-2xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-4 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                 >
                   {bedroomsOptions.map((option) => (
                     <option key={option} value={option}>
@@ -138,42 +138,44 @@ const Househunting = () => {
           </aside>
 
           <main>
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-3xl bg-white p-6 shadow-sm">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-3xl bg-[var(--jkuat-white)] p-6 shadow-sm border border-[var(--jkuat-green-600)]/10">
               <div>
-                <p className="text-sm text-slate-500">Showing {filteredHouses.length} listings</p>
-                <h2 className="text-2xl font-semibold text-slate-900">Available homes</h2>
+                <p className="text-sm text-[var(--jkuat-text)]/70">Showing {filteredHouses.length} listings</p>
+                <h2 className="text-2xl font-semibold text-[var(--jkuat-text)]">Available homes</h2>
               </div>
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
               {filteredHouses.map((house) => (
-                <article key={house.id} className="overflow-hidden rounded-3xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <article key={house.id} className="overflow-hidden rounded-3xl bg-[var(--jkuat-white)] border border-[var(--jkuat-green-600)]/10 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                   <img src={house.image} alt={house.name} className="h-56 w-full object-cover" />
                   <div className="p-5">
                     <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-xl font-semibold text-slate-900">{house.name}</h3>
-                      <span className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-700">
+                      <h3 className="text-xl font-semibold text-[var(--jkuat-text)]">{house.name}</h3>
+                      <span className="rounded-full bg-[rgba(14,122,54,0.12)] px-3 py-1 text-sm font-semibold text-[var(--jkuat-green-600)]">
                         KES {house.rentKES}/mo
                       </span>
                     </div>
-                    <p className="mt-3 text-sm text-slate-600">{house.location}</p>
-                    <div className="mt-3 flex items-center gap-2 text-sm text-slate-700">
-                      <span className="rounded-full bg-slate-100 px-3 py-1">{house.bedrooms} bed</span>
+                    <p className="mt-3 text-sm text-[var(--jkuat-text)]/75">{house.location}</p>
+                    <div className="mt-3 flex items-center gap-2 text-sm text-[var(--jkuat-text)]/80">
+                      <span className="rounded-full bg-[var(--jkuat-muted)] px-3 py-1">{house.bedrooms} bed</span>
                     </div>
 
-                    <div className="mt-4 grid gap-2 text-sm text-slate-600">
-                      {house.amenities.map((amenity) => (
-                        <span key={amenity} className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-2">
-                          <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                          {amenity}
-                        </span>
-                      ))}
+                    <div className="mt-4 grid gap-2 text-sm text-[var(--jkuat-text)]/75">
+                      {house.amenities.map((amenity) => {
+                        return (
+                          <span key={amenity} className="inline-flex items-center gap-2 rounded-full bg-[rgba(14,122,54,0.08)] px-3 py-2 text-[var(--jkuat-text)]/80">
+                            <span className="h-2.5 w-2.5 rounded-full bg-[var(--jkuat-green-600)]" />
+                            {amenity}
+                          </span>
+                        );
+                      })}
                     </div>
 
                     <button
                       type="button"
                       onClick={() => openModal(house)}
-                      className="mt-6 w-full rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                      className="mt-6 w-full rounded-2xl bg-[var(--jkuat-green-600)] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#0d7031]"
                     >
                       Book Viewing
                     </button>
@@ -186,17 +188,17 @@ const Househunting = () => {
       </div>
 
       {modalOpen && selectedHouse ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 px-4 py-8">
-          <div className="w-full max-w-2xl rounded-[32px] bg-white p-8 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(15,23,36,0.65)] px-4 py-8">
+          <div className="w-full max-w-2xl rounded-[32px] bg-[var(--jkuat-white)] border border-[var(--jkuat-green-600)]/10 p-8 shadow-2xl">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-semibold text-slate-900">Book Viewing</h2>
-                <p className="mt-2 text-sm text-slate-600">{selectedHouse.name} - {selectedHouse.location}</p>
+                <h2 className="text-2xl font-semibold text-[var(--jkuat-text)]">Book Viewing</h2>
+                <p className="mt-2 text-sm text-[var(--jkuat-text)]/75">{selectedHouse.name} - {selectedHouse.location}</p>
               </div>
               <button
                 type="button"
                 onClick={closeModal}
-                className="rounded-full bg-slate-100 p-3 text-slate-600 transition hover:bg-slate-200"
+                className="rounded-full bg-[var(--jkuat-muted)] p-3 text-[var(--jkuat-text)]/80 transition hover:bg-[var(--jkuat-white)]"
               >
                 ✕
               </button>
@@ -204,23 +206,23 @@ const Househunting = () => {
 
             <form onSubmit={handleBooking} className="mt-8 space-y-5">
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">Preferred date</label>
+                <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/80">Preferred date</label>
                 <input
                   type="date"
                   value={viewingDate}
                   onChange={(e) => setViewingDate(e.target.value)}
-                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none"
+                  className="w-full rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-4 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                   required
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">Preferred time</label>
+                <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/80">Preferred time</label>
                 <input
                   type="time"
                   value={viewingTime}
                   onChange={(e) => setViewingTime(e.target.value)}
-                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none"
+                  className="w-full rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-4 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                   required
                 />
               </div>
@@ -229,13 +231,13 @@ const Househunting = () => {
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="rounded-2xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                  className="rounded-2xl border border-[var(--jkuat-green-600)]/30 px-5 py-3 text-sm font-semibold text-[var(--jkuat-green-600)] transition hover:bg-[rgba(14,122,54,0.08)]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                  className="rounded-2xl bg-[var(--jkuat-green-600)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0d7031]"
                 >
                   Confirm Booking
                 </button>

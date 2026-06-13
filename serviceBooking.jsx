@@ -126,29 +126,29 @@ const ServiceBooking = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[var(--jkuat-muted)] px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-8 rounded-3xl bg-white p-6 shadow-sm">
-          <h1 className="text-3xl font-semibold text-slate-900">{serviceLabel} Booking</h1>
-          <p className="mt-2 text-slate-600">
+        <div className="mb-8 rounded-3xl bg-[var(--jkuat-white)] p-6 shadow-sm border border-[var(--jkuat-green-600)]/10">
+          <h1 className="text-3xl font-semibold text-[var(--jkuat-text)]">{serviceLabel} Booking</h1>
+          <p className="mt-2 text-[var(--jkuat-text)]/80">
             Choose a vendor and schedule your {serviceLabel.toLowerCase()} service at JKUAT.
           </p>
         </div>
 
         <div className="grid gap-6 xl:grid-cols-[1fr_420px]">
           <section className="space-y-6">
-            <div className="flex items-center justify-between rounded-3xl bg-white p-6 shadow-sm">
+            <div className="flex items-center justify-between rounded-3xl bg-[var(--jkuat-white)] p-6 shadow-sm border border-[var(--jkuat-green-600)]/10">
               <div>
-                <h2 className="text-xl font-semibold text-slate-900">Available Vendors</h2>
-                <p className="mt-2 text-sm text-slate-600">Select a vendor near Gate A, B, or C.</p>
+                <h2 className="text-xl font-semibold text-[var(--jkuat-text)]">Available Vendors</h2>
+                <p className="mt-2 text-sm text-[var(--jkuat-text)]/80">Select a vendor near Gate A, B, or C.</p>
               </div>
             </div>
 
             {availableVendors.length === 0 ? (
-              <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-600 shadow-sm">
-                <AlertCircle className="mx-auto mb-4 h-10 w-10 text-rose-500" />
-                <p className="text-lg font-semibold">No vendors available</p>
-                <p className="mt-2 text-sm">There are no vendors offering this service right now.</p>
+              <div className="rounded-3xl border border-dashed border-[var(--jkuat-green-600)]/30 bg-[var(--jkuat-white)] p-8 text-center text-[var(--jkuat-text)]/80 shadow-sm">
+                <AlertCircle className="mx-auto mb-4 h-10 w-10 text-[var(--jkuat-red)]" />
+                <p className="text-lg font-semibold text-[var(--jkuat-text)]">No vendors available</p>
+                <p className="mt-2 text-sm text-[var(--jkuat-text)]/75">There are no vendors offering this service right now.</p>
               </div>
             ) : (
               <div className="grid gap-4">
@@ -159,25 +159,25 @@ const ServiceBooking = () => {
                     onClick={() => handleVendorClick(vendor)}
                     className={`rounded-3xl border p-5 text-left shadow-sm transition ${
                       selectedVendor?.id === vendor.id
-                        ? 'border-emerald-500 bg-emerald-50'
-                        : 'border-slate-200 bg-white hover:border-emerald-300 hover:bg-slate-50'
+                        ? 'border-[var(--jkuat-green-600)] bg-[rgba(14,122,54,0.12)]'
+                        : 'border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] hover:border-[var(--jkuat-green-600)]/40 hover:bg-[var(--jkuat-muted)]'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-3">
                       <div>
-                        <h3 className="text-xl font-semibold text-slate-900">{vendor.name}</h3>
-                        <div className="mt-2 flex items-center gap-3 text-sm text-slate-600">
-                          <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1">
+                        <h3 className="text-xl font-semibold text-[var(--jkuat-text)]">{vendor.name}</h3>
+                        <div className="mt-2 flex items-center gap-3 text-sm text-[var(--jkuat-text)]/75">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-[var(--jkuat-muted)] px-3 py-1">
                             <Star className="h-4 w-4 text-amber-500" />
                             {vendor.rating}
                           </span>
-                          <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1">
-                            <MapPin className="h-4 w-4 text-slate-500" />
+                          <span className="inline-flex items-center gap-2 rounded-full bg-[var(--jkuat-muted)] px-3 py-1 text-[var(--jkuat-text)]/75">
+                            <MapPin className="h-4 w-4 text-[var(--jkuat-text)]/60" />
                             {vendor.location}
                           </span>
                         </div>
                       </div>
-                      <div className="rounded-3xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900">
+                      <div className="rounded-3xl bg-[var(--jkuat-muted)] px-4 py-2 text-sm font-semibold text-[var(--jkuat-text)]">
                         From KES {vendor.priceKES}
                       </div>
                     </div>
@@ -188,31 +188,31 @@ const ServiceBooking = () => {
           </section>
 
           <aside className="space-y-6">
-            <div className="rounded-3xl bg-white p-6 shadow-sm">
-              <h2 className="text-xl font-semibold text-slate-900">Booking Details</h2>
-              <p className="mt-2 text-sm text-slate-600">Select a slot and submit your booking request.</p>
+            <div className="rounded-3xl bg-[var(--jkuat-white)] p-6 shadow-sm border border-[var(--jkuat-green-600)]/10">
+              <h2 className="text-xl font-semibold text-[var(--jkuat-text)]">Booking Details</h2>
+              <p className="mt-2 text-sm text-[var(--jkuat-text)]/80">Select a slot and submit your booking request.</p>
 
               {selectedVendor ? (
                 <div className="mt-6 space-y-5">
-                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Selected Vendor</p>
-                    <p className="mt-2 text-base text-slate-700">{selectedVendor.name}</p>
+                  <div className="rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] p-4">
+                    <p className="text-sm font-semibold text-[var(--jkuat-text)]">Selected Vendor</p>
+                    <p className="mt-2 text-base text-[var(--jkuat-text)]/80">{selectedVendor.name}</p>
                   </div>
 
                   <div>
-                    <p className="mb-3 text-sm font-semibold text-slate-700">Pick a date</p>
+                    <p className="mb-3 text-sm font-semibold text-[var(--jkuat-text)]/75">Pick a date</p>
                     <DatePicker
                       selected={slotDate}
                       onChange={(date) => setSlotDate(date)}
-                      className="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none"
+                      className="w-full rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-4 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <p className="mb-3 text-sm font-semibold text-slate-700">Available time slots</p>
+                    <p className="mb-3 text-sm font-semibold text-[var(--jkuat-text)]/75">Available time slots</p>
                     <div className="grid gap-3">
                       {loading ? (
-                        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4 text-center text-slate-500">Loading slots…</div>
+                        <div className="rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-muted)] p-4 text-center text-[var(--jkuat-text)]/70">Loading slots…</div>
                       ) : slots.length ? (
                         slots.map((slot) => (
                           <button
@@ -221,15 +221,15 @@ const ServiceBooking = () => {
                             onClick={() => setSelectedSlotId(slot.id)}
                             className={`w-full rounded-3xl border px-4 py-3 text-left transition ${
                               selectedSlotId === slot.id
-                                ? 'border-emerald-500 bg-emerald-50'
-                                : 'border-slate-200 bg-white hover:border-emerald-300'
+                                ? 'border-[var(--jkuat-green-600)] bg-[rgba(14,122,54,0.12)]'
+                                : 'border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] hover:border-[var(--jkuat-green-600)]/40'
                             }`}
                           >
                             {slot.time}
                           </button>
                         ))
                       ) : (
-                        <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-500">
+                        <div className="rounded-3xl border border-dashed border-[var(--jkuat-green-600)]/40 bg-[var(--jkuat-muted)] p-4 text-sm text-[var(--jkuat-text)]/70">
                           No available slots for this vendor.
                         </div>
                       )}
@@ -238,72 +238,72 @@ const ServiceBooking = () => {
 
                   <form onSubmit={handleBooking} className="space-y-4">
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-slate-700">Pickup/Delivery Location</label>
+                      <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/75">Pickup/Delivery Location</label>
                       <input
                         type="text"
                         value={details.location}
                         onChange={(e) => handleInputChange('location', e.target.value)}
-                        className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none"
+                        className="w-full rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-4 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                         placeholder="e.g. Gate A hostel reception"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-slate-700">Notes</label>
+                      <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/75">Notes</label>
                       <textarea
                         value={details.notes}
                         onChange={(e) => handleInputChange('notes', e.target.value)}
-                        className="w-full min-h-[100px] rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none"
+                        className="w-full min-h-[100px] rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-4 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                         placeholder="Any special instructions?"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-slate-700">Phone</label>
+                      <label className="mb-2 block text-sm font-medium text-[var(--jkuat-text)]/75">Phone</label>
                       <div className="relative">
-                        <Phone className="pointer-events-none absolute left-4 top-4 h-5 w-5 text-slate-400" />
+                        <Phone className="pointer-events-none absolute left-4 top-4 h-5 w-5 text-[var(--jkuat-text)]/50" />
                         <input
                           type="tel"
                           value={details.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-12 py-3 text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none"
+                          className="w-full rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] px-12 py-3 text-[var(--jkuat-text)] shadow-sm focus:border-[var(--jkuat-green-600)] focus:outline-none"
                           placeholder="2547XXXXXXXX"
                         />
                       </div>
                     </div>
 
-                    {error ? <div className="rounded-3xl bg-rose-50 px-4 py-3 text-sm text-rose-700">{error}</div> : null}
+                    {error ? <div className="rounded-3xl bg-[rgba(198,40,40,0.08)] px-4 py-3 text-sm text-[var(--jkuat-red)]">{error}</div> : null}
 
                     <button
                       type="submit"
                       disabled={loading}
-                      className="inline-flex w-full items-center justify-center rounded-3xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-400"
+                      className="inline-flex w-full items-center justify-center rounded-3xl bg-[var(--jkuat-green-600)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0d7031] disabled:cursor-not-allowed disabled:bg-[rgba(14,122,54,0.4)]"
                     >
                       {loading ? 'Booking…' : 'Book Now'}
                     </button>
                   </form>
                 </div>
               ) : (
-                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 text-slate-600">
+                <div className="rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-muted)] p-6 text-[var(--jkuat-text)]/80">
                   Select a vendor to view booking options.
                 </div>
               )}
             </div>
 
             {confirmation ? (
-              <div className="rounded-3xl bg-white p-6 shadow-sm">
-                <div className="flex items-center gap-3 rounded-3xl border border-emerald-100 bg-emerald-50 p-5">
-                  <div className="rounded-2xl bg-emerald-600 p-3 text-white">
+              <div className="rounded-3xl bg-[var(--jkuat-white)] p-6 shadow-sm border border-[var(--jkuat-green-600)]/10">
+                <div className="flex items-center gap-3 rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[rgba(14,122,54,0.08)] p-5">
+                  <div className="rounded-2xl bg-[var(--jkuat-green-600)] p-3 text-white">
                     <MessageCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900">{confirmation.message}</h3>
-                    <p className="mt-1 text-sm text-slate-600">Your booking request has been created successfully.</p>
+                    <h3 className="text-lg font-semibold text-[var(--jkuat-text)]">{confirmation.message}</h3>
+                    <p className="mt-1 text-sm text-[var(--jkuat-text)]/80">Your booking request has been created successfully.</p>
                   </div>
                 </div>
                 {confirmation.paymentRequired ? (
-                  <div className="mt-5 rounded-3xl border border-slate-200 bg-slate-50 p-5 text-sm text-slate-700">
-                    <p className="font-semibold text-slate-900">Next step</p>
+                  <div className="mt-5 rounded-3xl border border-[var(--jkuat-green-600)]/20 bg-[var(--jkuat-white)] p-5 text-sm text-[var(--jkuat-text)]/80">
+                    <p className="font-semibold text-[var(--jkuat-text)]">Next step</p>
                     <p className="mt-2">Please complete payment via M-Pesa to confirm this booking.</p>
                   </div>
                 ) : null}
